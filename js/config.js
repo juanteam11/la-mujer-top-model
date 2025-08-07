@@ -42,7 +42,7 @@ function getEmailURL(subject = '', body = '') {
 // FUNCIONES DE CONTACTO GLOBALES
 // ===================================
 
-function contactWhatsApp(message = 'Hola! Me interesa más información sobre los servicios de La Mujer Top Model.') {
+function contactWhatsApp(message = 'Hola! Me interesa más información sobre los servicios de Thalia Dreams.') {
     window.open(getWhatsAppURL(message), '_blank');
 }
 
@@ -59,7 +59,7 @@ function contactEmail(subject = 'Consulta sobre servicios', body = 'Hola,\n\nEst
 // ===================================
 
 function sendBookingEmail(bookingData) {
-    const subject = '🌟 NUEVA RESERVA DE CITA - La Mujer Top Model';
+    const subject = '🌟 NUEVA RESERVA DE CITA - Thalia Dreams';
     
     let emailBody = `Nueva reserva recibida desde el sistema web:\n\n`;
     emailBody += `👤 CLIENTE: ${bookingData.clientName}\n`;
@@ -77,7 +77,7 @@ function sendBookingEmail(bookingData) {
     emailBody += `⚡ Contacta al cliente para confirmar disponibilidad\n`;
     emailBody += `🕒 Fecha de solicitud: ${new Date().toLocaleString('es-ES')}\n`;
     emailBody += `${'='.repeat(50)}\n\n`;
-    emailBody += `La Mujer Top Model - Sistema de Reservas Online`;
+    emailBody += `Thalia Dreams - Sistema de Reservas Online`;
     
     // Abre el cliente de email para envío manual
     const emailURL = getEmailURL(subject, emailBody);

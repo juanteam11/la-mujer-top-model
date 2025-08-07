@@ -1,4 +1,4 @@
-# La Mujer Top Model - Website
+# Thalia Dreams - Website
 
 Sitio web profesional para agencia de modelos con galería de fotos y sistema de venta de contenido exclusivo.
 
@@ -79,4 +79,4 @@ Para personalizar el sitio:
 - Agregar más fotos actualizando las rutas en `contenido.html`
 
 ---
-© 2025 La Mujer Top Model - Todos los derechos reservados
+© 2025 Thalia Dreams - Todos los derechos reservados
