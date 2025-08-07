@@ -1160,6 +1160,19 @@
                     <p class="category-description">
                         Servicios exclusivos para despedidas de soltero y soltera. Acompañamiento profesional y elegante para tu noche especial.
                     </p>
+                    
+                    <!-- Galería de fotos de despedidas de soltero -->
+                    <div class="photo-gallery-preview" style="margin: 20px 0;">
+                        <h4 style="color: #333; margin-bottom: 15px; font-size: 1.2em;">🎉 Galería de Despedidas</h4>
+                        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                            <div class="gallery-item" onclick="openPhotoModal('images/despedidasdesoltero.JPG', 'Despedida de Soltero Premium')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/despedidasdesoltero.JPG" alt="Despedida de Soltero" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                        </div>
+                        <button onclick="showAllBachelorPhotos()" style="background: linear-gradient(45deg, #f093fb, #f5576c); color: white; border: none; padding: 8px 16px; border-radius: 15px; font-size: 0.9em; cursor: pointer; transition: transform 0.2s ease;">Ver todas las fotos de despedidas</button>
+                    </div>
+                    
                     <ul class="event-list">
                         <li>
                             <span>Despedida Premium VIP</span>
@@ -1187,6 +1200,23 @@
                     <p class="category-description">
                         Servicios de animación y entretenimiento para eventos privados y públicos con el más alto nivel profesional.
                     </p>
+                    
+                    <!-- Galería de fotos de entretenimiento -->
+                    <div class="photo-gallery-preview" style="margin: 20px 0;">
+                        <h4 style="color: #333; margin-bottom: 15px; font-size: 1.2em;">🎭 Galería de Entretenimiento</h4>
+                        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                            <div class="gallery-item" onclick="openPhotoModal('images/entretenimiento1.jpg', 'Show de Entretenimiento 1')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/entretenimiento1.jpg" alt="Entretenimiento 1" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                            <div class="gallery-item" onclick="openPhotoModal('images/entretenimiento2.jpg', 'Show de Entretenimiento 2')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/entretenimiento2.jpg" alt="Entretenimiento 2" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                        </div>
+                        <button onclick="showAllEntertainmentPhotos()" style="background: linear-gradient(45deg, #f093fb, #f5576c); color: white; border: none; padding: 8px 16px; border-radius: 15px; font-size: 0.9em; cursor: pointer; transition: transform 0.2s ease;">Ver todas las fotos de entretenimiento</button>
+                    </div>
+                    
                     <ul class="event-list">
                         <li>
                             <span>Show Privado Elegante</span>
@@ -1844,6 +1874,114 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function showAllBachelorPhotos() {
+            // Create a comprehensive photo gallery modal for bachelor parties
+            const photos = [
+                { src: 'images/despedidasdesoltero.JPG', title: 'Despedida de Soltero Premium' },
+                { src: 'images/fotosprofesionales1.PNG', title: 'Servicio de Acompañamiento VIP' },
+                { src: 'images/fotosprofesionales3.JPG', title: 'Noche de Elegancia' },
+                { src: 'images/tereprincipal.jpg', title: 'Experiencia Exclusiva' }
+            ];
+            
+            let bachelorModal = document.getElementById('bachelorModal');
+            if (!bachelorModal) {
+                bachelorModal = createBachelorGalleryModal(photos);
+                document.body.appendChild(bachelorModal);
+            }
+            
+            bachelorModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showAllEntertainmentPhotos() {
+            // Create a comprehensive photo gallery modal for entertainment
+            const photos = [
+                { src: 'images/entretenimiento1.jpg', title: 'Show de Entretenimiento 1' },
+                { src: 'images/entretenimiento2.jpg', title: 'Show de Entretenimiento 2' }
+            ];
+            
+            let entertainmentModal = document.getElementById('entertainmentModal');
+            if (!entertainmentModal) {
+                entertainmentModal = createEntertainmentGalleryModal(photos);
+                document.body.appendChild(entertainmentModal);
+            }
+            
+            entertainmentModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function createEntertainmentGalleryModal(photos) {
+            const modal = document.createElement('div');
+            modal.id = 'entertainmentModal';
+            modal.style.cssText = `
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 2000;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+            `;
+            
+            let photosHtml = photos.map(photo => `
+                <div style="margin: 10px; text-align: center;">
+                    <img src="${photo.src}" alt="${photo.title}" onclick="openPhotoModal('${photo.src}', '${photo.title}')" style="
+                        width: 200px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <p style="color: white; margin-top: 10px; font-size: 0.9em;">${photo.title}</p>
+                </div>
+            `).join('');
+            
+            modal.innerHTML = `
+                <div style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; max-width: 90vw; max-height: 90vh; overflow-y: auto; backdrop-filter: blur(20px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h2 style="color: white; font-size: 2em; margin: 0;">🎭 Galería de Entretenimiento</h2>
+                        <button onclick="closeEntertainmentModal()" style="
+                            background: #ff6b9d;
+                            color: white;
+                            border: none;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            font-size: 1.5em;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='#f5576c'" onmouseout="this.style.background='#ff6b9d'">&times;</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; justify-items: center;">
+                        ${photosHtml}
+                    </div>
+                </div>
+            `;
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeEntertainmentModal();
+                }
+            });
+            
+            return modal;
+        }
+
+        function closeEntertainmentModal() {
+            const modal = document.getElementById('entertainmentModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         function createGalleryModal(photos) {
             const modal = document.createElement('div');
             modal.id = 'galleryModal';
@@ -1908,6 +2046,78 @@
             return modal;
         }
 
+        function createBachelorGalleryModal(photos) {
+            const modal = document.createElement('div');
+            modal.id = 'bachelorModal';
+            modal.style.cssText = `
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 2000;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+            `;
+            
+            let photosHtml = photos.map(photo => `
+                <div style="margin: 10px; text-align: center;">
+                    <img src="${photo.src}" alt="${photo.title}" onclick="openPhotoModal('${photo.src}', '${photo.title}')" style="
+                        width: 200px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <p style="color: white; margin-top: 10px; font-size: 0.9em;">${photo.title}</p>
+                </div>
+            `).join('');
+            
+            modal.innerHTML = `
+                <div style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; max-width: 90vw; max-height: 90vh; overflow-y: auto; backdrop-filter: blur(20px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h2 style="color: white; font-size: 2em; margin: 0;">🎉 Galería de Despedidas</h2>
+                        <button onclick="closeBachelorModal()" style="
+                            background: #ff6b9d;
+                            color: white;
+                            border: none;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            font-size: 1.5em;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='#f5576c'" onmouseout="this.style.background='#ff6b9d'">&times;</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; justify-items: center;">
+                        ${photosHtml}
+                    </div>
+                </div>
+            `;
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeBachelorModal();
+                }
+            });
+            
+            return modal;
+        }
+
+        function closeBachelorModal() {
+            const modal = document.getElementById('bachelorModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         function closeGalleryModal() {
             const modal = document.getElementById('galleryModal');
             if (modal) {
@@ -1921,6 +2131,7 @@
             if (event.key === 'Escape') {
                 closePhotoModal();
                 closeGalleryModal();
+                closeEntertainmentModal();
             }
         });
     </script>
