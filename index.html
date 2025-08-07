@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Mujer Top Model</title>
+    <script src="js/config.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffeaa7 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #f0f0f0;
+            font-style: italic;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .model-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #f093fb 50%, #f5576c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .model-info {
+            padding: 20px;
+        }
+
+        .model-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .model-details {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .stats {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6b9d;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn {
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>La Mujer Top Model</h1>
+            <p class="subtitle">Excelencia en Moda y Belleza de Élite</p>
+        </header>
+
+        <section class="stats">
+            <h2>Estadísticas de la Agencia</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div>Modelos Top</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div>Desfiles de Moda</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div>Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div>Marcas Asociadas</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="model-card">
+                <div class="model-image">👑</div>
+                <div class="model-info">
+                    <div class="model-name">Portafolio de Élite</div>
+                    <div class="model-details">
+                        Servicios profesionales de modelaje para semanas de la moda, campañas comerciales y sesiones editoriales. Nuestras modelos representan la cúspide de la excelencia en moda.
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-image">💄</div>
+                <div class="model-info">
+                    <div class="model-name">Belleza y Moda</div>
+                    <div class="model-details">
+                        Especializadas en campañas de belleza de alta gama, promociones de marcas de lujo y colaboraciones internacionales de moda con diseñadores de todo el mundo.
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-image">📸</div>
+                <div class="model-info">
+                    <div class="model-name">Excelencia Editorial</div>
+                    <div class="model-details">
+                        Destacadas en las principales revistas de moda, páginas editoriales y proyectos de fotografía artística que definen las tendencias de moda contemporánea.
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-image">✨</div>
+                <div class="model-info">
+                    <div class="model-name">Maestría en Pasarela</div>
+                    <div class="model-details">
+                        Experiencia profesional en pasarelas a través de las semanas internacionales de moda incluyendo París, Milán, Nueva York y las Semanas de la Moda de Londres.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>¿¿Listos para Trabajar con Nosotros?</h2>
+            <p>Únete al mundo élite del modelaje top o reserva nuestro talento excepcional para tu próximo proyecto.</p>
+            <br>
+            <a href="#" class="contact-btn" onclick="contactForModeling()">📱 Reservar Modelo</a>
+            <a href="#" class="contact-btn" onclick="contactForApplication()">👑 Aplicar para Unirse</a>
+            <a href="#" class="contact-btn" onclick="contactEmail()">📧 Email Agencia</a>
+        </section>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.querySelectorAll('.model-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = this.style.transform === 'scale(1.02)' ? 'scale(1)' : 'scale(1.02)';
+            });
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const finalNumber = parseInt(stat.textContent);
+                let currentNumber = 0;
+                const increment = finalNumber / 50;
+                
+                const timer = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= finalNumber) {
+                        stat.textContent = finalNumber + (stat.textContent.includes('+') ? '+' : '');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(currentNumber) + (stat.textContent.includes('+') ? '+' : '');
+                    }
+                }, 50);
+            });
+        }
+
+        // Trigger animation when page loads
+        window.addEventListener('load', animateStats);
+        
+        // Contact functions for specific inquiries
+        function contactForModeling() {
+            const message = 'Hola! Me interesa contratar modelos de La Mujer Top Model para un proyecto. ¿Podrían darme más información sobre disponibilidad y tarifas?';
+            contactWhatsApp(message);
+        }
+        
+        function contactForApplication() {
+            const message = 'Hola! Estoy interesada en formar parte de La Mujer Top Model como modelo. ¿Podrían darme información sobre el proceso de selección?';
+            contactWhatsApp(message);
+        }
+    </script>
+</body>
+</html>
