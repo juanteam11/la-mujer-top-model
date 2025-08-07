@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Mujer Top Model - Inicio</title>
+    <title>La Mujer Top Model - Página Principal</title>
+    <script src="js/config.js"></script>
     <style>
         * {
             margin: 0;
@@ -17,97 +18,115 @@
             color: #333;
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffeaa7 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Animated background elements */
-        .bg-decoration {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .bg-decoration:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            background: #ff6b9d;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
+        .logo {
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .bg-decoration:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            background: #f093fb;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
+        .nav-menu {
+            display: flex;
+            gap: 20px;
         }
 
-        .bg-decoration:nth-child(3) {
-            width: 100px;
-            height: 100px;
-            background: #ff9a9e;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
+        .nav-item {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
         }
 
-        .bg-decoration:nth-child(4) {
-            width: 70px;
-            height: 70px;
-            background: #fad0c4;
-            top: 30%;
-            right: 30%;
-            animation-delay: 1s;
+        .nav-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
+        /* Main Container */
         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
             text-align: center;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(20px);
             border-radius: 25px;
-            padding: 60px 50px;
+            padding: 80px 40px;
+            margin-bottom: 60px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 600px;
-            width: 90%;
-            animation: slideUp 1s ease-out;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
         }
 
-        .logo {
-            font-size: 4em;
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo {
+            font-size: 5em;
             margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
             animation: glow 2s ease-in-out infinite alternate;
         }
 
+        @keyframes glow {
+            from { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); }
+            to { text-shadow: 2px 2px 20px rgba(255, 107, 157, 0.6); }
+        }
+
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             margin: 0 auto 30px;
             background-image: url('images/tereprincipal.jpg');
@@ -115,290 +134,410 @@
             background-position: center;
             background-repeat: no-repeat;
             background-color: rgba(255, 154, 158, 0.3);
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             animation: profileGlow 3s ease-in-out infinite alternate;
             position: relative;
             overflow: hidden;
         }
 
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(255, 154, 158, 0.2), rgba(240, 147, 251, 0.2));
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .profile-image:hover::before {
-            opacity: 1;
-        }
-
         @keyframes profileGlow {
-            from {
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            }
-            to {
-                box-shadow: 0 20px 45px rgba(255, 107, 157, 0.3);
-            }
+            from { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+            to { box-shadow: 0 25px 60px rgba(255, 107, 157, 0.4); }
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            }
-            to {
-                text-shadow: 2px 2px 20px rgba(255, 107, 157, 0.6);
-            }
-        }
-
-        h1 {
-            font-size: 3.2em;
+        .hero h1 {
+            font-size: 4em;
             color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-            margin-bottom: 15px;
+            text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
             letter-spacing: 3px;
             font-weight: 300;
         }
 
-        .subtitle {
-            font-size: 1.3em;
+        .hero .subtitle {
+            font-size: 1.5em;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-style: italic;
             font-weight: 300;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .nav-buttons {
+        /* Services Section */
+        .services {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(45deg, #ff9a9e, #f093fb, #f5576c);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .service-btn {
+            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-buttons {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .nav-btn {
-            background: linear-gradient(45deg, #ff9a9e, #f093fb);
+        .contact-btn {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
             color: white;
-            padding: 20px 40px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 50px;
-            font-size: 1.4em;
+            border-radius: 25px;
+            font-size: 1.1em;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            min-width: 180px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .nav-btn:hover::before {
-            left: 0;
-        }
-
-        .nav-btn:hover {
+        .contact-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        .nav-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .eventos-btn {
-            background: linear-gradient(45deg, #ff9a9e, #f093fb);
-        }
-
-        .contenido-btn {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
-        }
-
+        /* Footer */
         .footer {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
+            text-align: center;
+            padding: 30px 20px;
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9em;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 40px 30px;
+            .hero h1 {
+                font-size: 2.8em;
             }
             
-            h1 {
-                font-size: 2.5em;
-                letter-spacing: 2px;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .nav-btn {
-                width: 100%;
-                max-width: 250px;
+            .hero .subtitle {
                 font-size: 1.2em;
-                padding: 18px 35px;
-            }
-            
-            .logo {
-                font-size: 3em;
             }
             
             .profile-image {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 25px;
+                width: 200px;
+                height: 200px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
 
         @media (max-width: 480px) {
-            .container {
+            .hero {
+                padding: 50px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .service-card {
                 padding: 30px 20px;
-                margin: 20px;
             }
             
-            h1 {
-                font-size: 2em;
-            }
-            
-            .subtitle {
-                font-size: 1.1em;
+            .container {
+                padding: 20px 10px;
             }
         }
 
-        /* Sparkle animation */
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: sparkle 3s linear infinite;
+        /* Animation for page load */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
         }
 
-        @keyframes sparkle {
-            0% {
-                opacity: 0;
-                transform: scale(0);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0);
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <!-- Background decorations -->
-    <div class="bg-decoration"></div>
-    <div class="bg-decoration"></div>
-    <div class="bg-decoration"></div>
-    <div class="bg-decoration"></div>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">👑 La Mujer Top Model</a>
+            <nav class="nav-menu">
+                <a href="eventos.html" class="nav-item">📅 Eventos</a>
+                <a href="contenido.html" class="nav-item">📋 Contenido</a>
+                <a href="agencia.html" class="nav-item">🏢 Agencia</a>
+            </nav>
+        </div>
+    </header>
 
     <div class="container">
-        <div class="logo">👑</div>
-        <div class="profile-image"></div>
-        <h1>La Mujer Top Model</h1>
-        <p class="subtitle">Excelencia en Moda y Belleza de Élite</p>
-        
-        <div class="nav-buttons">
-            <a href="eventos.html" class="nav-btn eventos-btn">
-                📅 Eventos
-            </a>
-            <a href="contenido.html" class="nav-btn contenido-btn">
-                📋 Contenido
-            </a>
-        </div>
+        <section class="hero fade-in">
+            <div class="hero-content">
+                <div class="hero-logo">👑</div>
+                <div class="profile-image"></div>
+                <h1>La Mujer Top Model</h1>
+                <p class="subtitle">Excelencia en Moda y Belleza de Élite</p>
+            </div>
+        </section>
+
+        <section class="services fade-in">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <h3>Eventos Exclusivos</h3>
+                    <p>Participa en eventos de moda, pasarelas y sesiones fotográficas profesionales. Experiencias únicas en el mundo del modelaje de élite.</p>
+                    <a href="eventos.html" class="service-btn">Ver Eventos</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📸</div>
+                    <h3>Contenido Premium</h3>
+                    <p>Accede a fotos profesionales, videos exclusivos y contenido personalizado de alta calidad producido especialmente para ti.</p>
+                    <a href="contenido.html" class="service-btn">Ver Contenido</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⭐</div>
+                    <h3>Servicios VIP</h3>
+                    <p>Experiencias personalizadas, sesiones privadas y acceso completo a todo nuestro contenido exclusivo y servicios premium.</p>
+                    <a href="contenido.html" class="service-btn">Ser VIP</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about fade-in">
+            <h2>✨ Sobre La Mujer Top Model</h2>
+            <p>
+                Bienvenido al mundo de la elegancia y la sofisticación. La Mujer Top Model representa la excelencia en el modelaje profesional, 
+                ofreciendo servicios de alta gama, contenido exclusivo y experiencias únicas en el mundo de la moda y la belleza.
+            </p>
+            <p>
+                Con años de experiencia en la industria, nos especializamos en crear momentos inolvidables y contenido de primera calidad 
+                que refleja la verdadera esencia del glamour y la distinción.
+            </p>
+        </section>
+
+        <section class="contact fade-in">
+            <h2>💬 Contáctanos</h2>
+            <p>¿Tienes preguntas o quieres conocer más sobre nuestros servicios? Estamos aquí para ayudarte.</p>
+            
+            <div class="contact-buttons">
+                <a href="#" class="contact-btn" onclick="contactWhatsApp()">
+                    📱 WhatsApp
+                </a>
+                <a href="#" class="contact-btn" onclick="contactInstagram()">
+                    📷 Instagram
+                </a>
+                <a href="#" class="contact-btn" onclick="contactEmail()">
+                    📧 Email
+                </a>
+            </div>
+        </section>
     </div>
 
-    <div class="footer">
+    <footer class="footer">
         © 2025 La Mujer Top Model - Todos los derechos reservados
-    </div>
+    </footer>
 
     <script>
-        // Add sparkle effects
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top = Math.random() * 100 + 'vh';
-            sparkle.style.animationDelay = Math.random() * 3 + 's';
-            document.body.appendChild(sparkle);
-            
-            setTimeout(() => {
-                sparkle.remove();
-            }, 3000);
-        }
-
-        // Create sparkles periodically
-        setInterval(createSparkle, 800);
-
-        // Navigation functions
-        function goToEventos() {
-            // Redirect to events page
-            window.location.href = 'eventos.html';
-        }
-
-        function goToContenido() {
-            // Redirect to content sales page
-            window.location.href = 'contenido.html';
-        }
-
-        // Add entrance animations to buttons
+        // Add entrance animations
         document.addEventListener('DOMContentLoaded', function() {
-            const buttons = document.querySelectorAll('.nav-btn');
-            buttons.forEach((button, index) => {
-                button.style.opacity = '0';
-                button.style.transform = 'translateY(30px)';
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
                 
                 setTimeout(() => {
-                    button.style.transition = 'all 0.6s ease';
-                    button.style.opacity = '1';
-                    button.style.transform = 'translateY(0)';
-                }, 500 + (index * 200));
+                    element.style.transition = 'all 0.8s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 200 * (index + 1));
             });
         });
 
-        // Add hover sound effect (optional)
-        document.querySelectorAll('.nav-btn').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-3px) scale(1.02)';
+        // Add interactive effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
             });
             
-            button.addEventListener('mouseleave', function() {
+            card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
