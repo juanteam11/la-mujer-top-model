@@ -1348,28 +1348,53 @@
 
             <div class="category-card fade-in" style="animation-delay: 0.8s;">
                 <div class="category-header">
-                    <div class="category-icon">🌟</div>
+                    <div class="category-icon">📸</div>
                 </div>
                 <div class="category-content">
-                    <h3 class="category-title">Otros</h3>
+                    <h3 class="category-title">Modelaje</h3>
                     <p class="category-description">
-                        Servicios personalizados y especializados según tus necesidades específicas. Consulta disponibilidad.
+                        Sesiones fotográficas profesionales de modelaje, fashion y retratos con los mejores fotógrafos del sector.
                     </p>
+                    
+                    <!-- Galería de fotos de modelaje -->
+                    <div class="photo-gallery-preview" style="margin: 20px 0;">
+                        <h4 style="color: #333; margin-bottom: 15px; font-size: 1.2em;">📷 Galería de Modelaje</h4>
+                        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 20px;">
+                            <div class="gallery-item" onclick="openPhotoModal('images/modelaje1.jpg', 'Sesión Fashion Editorial')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/modelaje1.jpg" alt="Modelaje Fashion" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                            <div class="gallery-item" onclick="openPhotoModal('images/modelaje2.jpg', 'Retrato Profesional')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/modelaje2.jpg" alt="Retrato Profesional" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                            <div class="gallery-item" onclick="openPhotoModal('images/modelaje3.jpg', 'Sesión Glamour')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/modelaje3.jpg" alt="Sesión Glamour" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                            <div class="gallery-item" onclick="openPhotoModal('images/modelaje4.jpg', 'Editorial de Moda')" style="position: relative; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                <img src="images/modelaje4.jpg" alt="Editorial de Moda" style="width: 100%; height: 100px; object-fit: cover; display: block;" onerror="this.parentElement.style.display='none'">
+                                <div class="gallery-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; text-align: center; padding: 5px;">Ver</div>
+                            </div>
+                        </div>
+                        <button onclick="showAllModelingPhotos()" style="background: linear-gradient(45deg, #f093fb, #f5576c); color: white; border: none; padding: 8px 16px; border-radius: 15px; font-size: 0.9em; cursor: pointer; transition: transform 0.2s ease;">Ver todas las fotos de modelaje</button>
+                    </div>
+                    
                     <ul class="event-list">
                         <li>
-                            <span>Servicio Personalizado</span>
-                            <span class="event-date">Por definir</span>
+                            <span>Sesión Fashion Editorial</span>
+                            <span class="event-date">15 Feb</span>
                         </li>
                         <li>
-                            <span>Consultoría Premium</span>
-                            <span class="event-date">Disponible</span>
+                            <span>Shooting Glamour Premium</span>
+                            <span class="event-date">28 Feb</span>
                         </li>
                         <li>
-                            <span>Proyecto Especial</span>
-                            <span class="event-date">A medida</span>
+                            <span>Campaña Publicitaria</span>
+                            <span class="event-date">10 Mar</span>
                         </li>
                     </ul>
-                    <button class="contact-btn" onclick="contactForBooking('otros')">📞 Consultar</button>
+                    <button class="contact-btn" onclick="contactForBooking('modelaje')">📸 Contratar</button>
                 </div>
             </div>
         </section>
@@ -1434,6 +1459,7 @@
                 'animacion': 'Hola! Me interesa contratar servicios de animación para un evento. ¿Podrían contarme sobre los shows disponibles y tarifas?',
                 'fiesta': 'Hola! Necesito acompañamiento profesional para una fiesta. ¿Podrían darme más detalles sobre sus servicios?',
                 'acompanamiento': 'Hola! Me interesa contratar servicios de acompañamiento para una ocasión especial. ¿Podrían darme más información?',
+                'modelaje': 'Hola! Me interesa contratar servicios de modelaje y sesiones fotográficas. ¿Podrían darme información sobre los paquetes disponibles?',
                 'otros': 'Hola! Me interesa información sobre servicios personalizados. ¿Podrían contarme qué opciones tienen disponibles?'
             };
             
@@ -1967,6 +1993,29 @@
             document.body.style.overflow = 'hidden';
         }
 
+        function showAllModelingPhotos() {
+            // Create a comprehensive photo gallery modal for modeling
+            const photos = [
+                { src: 'images/modelaje1.jpg', title: 'Sesión Fashion Editorial' },
+                { src: 'images/modelaje2.jpg', title: 'Retrato Profesional' },
+                { src: 'images/modelaje3.jpg', title: 'Sesión Glamour' },
+                { src: 'images/modelaje4.jpg', title: 'Editorial de Moda' },
+                { src: 'images/modelaje5.jpg', title: 'Shooting Creativo' },
+                { src: 'images/modelaje6.jpg', title: 'Sesión Artística' },
+                { src: 'images/modelaje7.jpg', title: 'Portfolio Profesional' },
+                { src: 'images/modelaje8.jpg', title: 'Campaña Fashion' }
+            ];
+            
+            let modelingModal = document.getElementById('modelingModal');
+            if (!modelingModal) {
+                modelingModal = createModelingGalleryModal(photos);
+                document.body.appendChild(modelingModal);
+            }
+            
+            modelingModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
         function createEntertainmentGalleryModal(photos) {
             const modal = document.createElement('div');
             modal.id = 'entertainmentModal';
@@ -2231,6 +2280,78 @@
             return modal;
         }
 
+        function createModelingGalleryModal(photos) {
+            const modal = document.createElement('div');
+            modal.id = 'modelingModal';
+            modal.style.cssText = `
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 2000;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(10px);
+                overflow-y: auto;
+            `;
+            
+            let photosHtml = photos.map(photo => `
+                <div style="margin: 10px; text-align: center;">
+                    <img src="${photo.src}" alt="${photo.title}" onclick="openPhotoModal('${photo.src}', '${photo.title}')" style="
+                        width: 200px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: transform 0.3s ease;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <p style="color: white; margin-top: 10px; font-size: 0.9em;">${photo.title}</p>
+                </div>
+            `).join('');
+            
+            modal.innerHTML = `
+                <div style="background: rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; max-width: 90vw; max-height: 90vh; overflow-y: auto; backdrop-filter: blur(20px);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                        <h2 style="color: white; font-size: 2em; margin: 0;">📷 Galería de Modelaje</h2>
+                        <button onclick="closeModelingModal()" style="
+                            background: #ff6b9d;
+                            color: white;
+                            border: none;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            font-size: 1.5em;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        " onmouseover="this.style.background='#f5576c'" onmouseout="this.style.background='#ff6b9d'">&times;</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; justify-items: center;">
+                        ${photosHtml}
+                    </div>
+                </div>
+            `;
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModelingModal();
+                }
+            });
+            
+            return modal;
+        }
+
+        function closeModelingModal() {
+            const modal = document.getElementById('modelingModal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         function closeAccompanimentModal() {
             const modal = document.getElementById('accompanimentModal');
             if (modal) {
@@ -2263,6 +2384,7 @@
                 closeEntertainmentModal();
                 closeBachelorModal();
                 closeAccompanimentModal();
+                closeModelingModal();
             }
         });
     </script>
