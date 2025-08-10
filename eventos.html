@@ -1066,7 +1066,7 @@
                     <div class="calendar-month">
                         <div class="month-nav">
                             <button class="nav-btn" onclick="previousMonth()">‹</button>
-                            <div class="month-year" id="monthYear">Enero 2025</div>
+                            <div class="month-year" id="monthYear">Agosto 2025</div>
                             <button class="nav-btn" onclick="nextMonth()">›</button>
                         </div>
                     </div>
@@ -1444,30 +1444,30 @@
             
             <div class="events-timeline">
                 <div class="event-card">
-                    <div class="event-month">Enero 2025</div>
-                    <h3 class="event-title">Fashion Week Internacional</h3>
+                    <div class="event-month">Agosto 2025</div>
+                    <h3 class="event-title">Fashion Week Verano</h3>
                     <p class="event-details">
-                        Participación en una de las semanas de la moda más importantes del año con diseñadores de renombre mundial.
+                        Temporada alta de eventos y desfiles exclusivos. Múltiples sesiones fotográficas y shows premium programados.
                     </p>
-                    <div class="event-location">📍 Centro de Convenciones</div>
+                    <div class="event-location">📍 Múltiples Locaciones</div>
                 </div>
                 
                 <div class="event-card">
-                    <div class="event-month">Febrero 2025</div>
-                    <h3 class="event-title">Sesión Editorial Vogue</h3>
+                    <div class="event-month">Septiembre 2025</div>
+                    <h3 class="event-title">Temporada Premium</h3>
                     <p class="event-details">
-                        Sesión exclusiva para revista internacional con fotógrafo de fama mundial y estilistas de primera línea.
+                        Eventos exclusivos y sesiones de alta gama. Agenda ocupada con proyectos especiales y colaboraciones VIP.
                     </p>
-                    <div class="event-location">📍 Estudio Premium</div>
+                    <div class="event-location">📍 Estudios Premium</div>
                 </div>
                 
                 <div class="event-card">
-                    <div class="event-month">Marzo 2025</div>
-                    <h3 class="event-title">Campaña Global Beauty</h3>
+                    <div class="event-month">Octubre 2025</div>
+                    <h3 class="event-title">Nuevas Oportunidades</h3>
                     <p class="event-details">
-                        Campaña publicitaria para marca internacional de cosméticos con alcance en múltiples países.
+                        Fechas disponibles para nuevos clientes. Reserva tu cita para eventos personalizados y sesiones exclusivas.
                     </p>
-                    <div class="event-location">📍 Locación Secreta</div>
+                    <div class="event-location">📍 Por Confirmar</div>
                 </div>
             </div>
         </section>
@@ -1522,7 +1522,7 @@
         });
 
         // Calendar functionality
-        let currentMonth = 0;
+        let currentMonth = 7; // Agosto 2025 (0-based, so 7 = agosto)
         let currentYear = 2025;
         let selectedDate = null;
         let selectedTime = null;
@@ -1534,11 +1534,18 @@
         
         const dayNames = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
         
-        // Dates that are booked (ejemplo de fechas ocupadas)
+        // Dates that are booked (fechas ocupadas reales)
         const bookedDates = [
-            '2025-01-15', '2025-01-22', '2025-01-28',
-            '2025-02-05', '2025-02-12', '2025-02-20',
-            '2025-03-08', '2025-03-15', '2025-03-25'
+            // Agosto 2025 - del 1 al 18 y días específicos
+            '2025-08-01', '2025-08-02', '2025-08-03', '2025-08-04', '2025-08-05',
+            '2025-08-06', '2025-08-07', '2025-08-08', '2025-08-09', '2025-08-10',
+            '2025-08-11', '2025-08-12', '2025-08-13', '2025-08-14', '2025-08-15',
+            '2025-08-16', '2025-08-17', '2025-08-18', '2025-08-22', '2025-08-23',
+            '2025-08-24', '2025-08-29', '2025-08-30', '2025-08-31',
+            // Septiembre 2025 - días específicos
+            '2025-09-05', '2025-09-06', '2025-09-07', '2025-09-12', '2025-09-13',
+            '2025-09-14', '2025-09-19', '2025-09-20', '2025-09-21', '2025-09-26',
+            '2025-09-27', '2025-09-28'
         ];
         
         // Available time slots for different dates
@@ -1789,6 +1796,46 @@
             
             // Reset form
             resetBookingForm();
+        }
+        
+        function sendBookingEmail(bookingData) {
+            // Prepare email content
+            const subject = encodeURIComponent('🌟 Nueva Reserva de Cita - Thalia Dreams');
+            
+            let emailBody = `🌟 NUEVA RESERVA DE CITA 🌟\n\n`;
+            emailBody += `Datos del Cliente:\n`;
+            emailBody += `👤 Nombre: ${bookingData.clientName}\n`;
+            emailBody += `📱 Teléfono: ${bookingData.clientPhone}\n\n`;
+            emailBody += `Detalles del Servicio:\n`;
+            emailBody += `🎯 Servicio Solicitado: ${bookingData.serviceName}\n`;
+            emailBody += `📅 Fecha Solicitada: ${bookingData.formattedDate}\n`;
+            emailBody += `⏰ Hora Solicitada: ${bookingData.selectedTime}\n\n`;
+            
+            if (bookingData.eventDetails) {
+                emailBody += `💭 Detalles Adicionales:\n${bookingData.eventDetails}\n\n`;
+            }
+            
+            emailBody += `Fecha de la solicitud: ${new Date().toLocaleDateString('es-ES')} a las ${new Date().toLocaleTimeString('es-ES')}\n\n`;
+            emailBody += `✨ Por favor confirmar disponibilidad y contactar al cliente.\n\n`;
+            emailBody += `---\nThalia Dreams - Sistema de Reservas\nwww.thaliadreams.com`;
+            
+            const encodedBody = encodeURIComponent(emailBody);
+            
+            // Create mailto link
+            const mailtoLink = `mailto:mosquet.team@gmail.com?subject=${subject}&body=${encodedBody}`;
+            
+            // Open email client
+            try {
+                window.open(mailtoLink, '_blank');
+            } catch (error) {
+                console.log('Error abriendo cliente de email:', error);
+                // Fallback: copy email content to clipboard
+                navigator.clipboard.writeText(emailBody).then(() => {
+                    alert('No se pudo abrir el cliente de email automáticamente. El contenido ha sido copiado al portapapeles.');
+                }).catch(() => {
+                    alert('Error al enviar email. Por favor contacta manualmente a mosquet.team@gmail.com');
+                });
+            }
         }
         
         function resetBookingForm() {
