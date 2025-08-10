@@ -11,7 +11,6 @@ proyectotere/
 ├── index.html             # Página de información de la agencia (tonos rosas)
 ├── images/                # 📸 Carpeta de imágenes
 │   ├── tereprincipal.jpg     # Foto principal para página de inicio
-│   ├── fotosprofesionales1.PNG  # Foto profesional 1
 │   ├── fotosprofesionales3.JPG  # Foto profesional 3
 │   ├── fotosprofesionales4.JPG  # Foto profesional 4
 │   └── fotosprofesionales6.JPG  # Foto profesional 6
